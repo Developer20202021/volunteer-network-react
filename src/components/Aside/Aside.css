@@ -1,0 +1,42 @@
+
+.aside-logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+
+
+
+.aside-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+.aside-list-container p{
+    margin-top: 20px;
+
+    display: flex;
+}
+
+.aside-list-container p span{
+   margin-right: 10px;
+}
+
+.register-list{
+    color: #0069D9;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add-event{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(87, 85, 85);
+    cursor: pointer;
+
+}
