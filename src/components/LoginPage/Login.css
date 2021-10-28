@@ -55,3 +55,10 @@
 
         color: #0069D9;
 }
+
+.log-in-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}

@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Aside from '../Aside/Aside';
 import User from './user/User';
 import "./VolunteerAdmin.css"
@@ -11,6 +12,33 @@ import "./VolunteerAdmin.css"
 
 
 const VolunteerAdmin = () => {
+
+    const [registers, setRegisters] = useState([])
+
+
+useEffect(()=>{
+    fetch('http://localhost:5000/volunteers/register-list')
+    .then(res=>res.json())
+    .then(data=>{
+
+        setRegisters(data.allRegisterInfo)
+
+        console.log(data.allRegisterInfo);
+    })
+    .catch(err=>{
+        console.log(err);
+
+    })
+},[])
+
+
+
+
+
+
+
+
+
     return (
         <div>
 
@@ -40,21 +68,26 @@ const VolunteerAdmin = () => {
 
 
 
-                        <div className="list-headers">
-                          
-                                <p>Name</p>
-                                <p>Email ID</p>
-                                <p>Registarting Date</p>
-                                <p>Volunteer list</p>
-                                <p>Action</p>
+                        {/* <div className="list-headers"></div> */}
+                        <table className="list-headers">
+                                <thead>
+                                <td>Name</td>
+                                <td>Email ID</td>
+                                <td>Registarting Date</td>
+                                <td>Volunteer list</td>
+                                <td>Action</td>
+
+                                </thead>
 
                       
 
-                        </div>
 
+                        
 
+                        {/* <div className="all-users"> */}
+                            {registers?.map(register=><User value={register}></User>)}
 
-                        <div className="all-users">
+                            {/* <User></User>
                             <User></User>
                             <User></User>
                             <User></User>
@@ -70,8 +103,7 @@ const VolunteerAdmin = () => {
                             <User></User>
                             <User></User>
                             <User></User>
-                            <User></User>
-                            <User></User>
+                            <User></User> */}
 
 
 
@@ -90,7 +122,8 @@ const VolunteerAdmin = () => {
 
 
 
-                        </div>
+                        {/* </div> */}
+                        </table>
 
 
 

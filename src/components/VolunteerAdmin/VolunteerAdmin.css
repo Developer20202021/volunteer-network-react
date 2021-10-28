@@ -14,15 +14,16 @@
     width: 25vw;
     /* height: 100vh; */
 }
+table{
+    border: none;
+}
 
-.list-headers{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border:2px solid white;
+.list-headers thead{
+    border: none;
+    /* border:2px solid white; */
     border-radius: 15px;
-    align-items: center;
-    background-color: rgb(253, 238, 238);
+    /* align-items: center; */
+     background-color: rgb(253, 238, 238);
    
 }
 
@@ -32,11 +33,11 @@
 
 }
 
-.list-headers p{
-        font-size: 14px;
-        font-weight: 700;
-        margin-right: 50px;
-        margin-left: 30px;
+.list-headers thead{
+         font-size: 17px;
+        font-weight: 700; 
+        /* margin-right: 50px;
+        margin-left: 30px; */
         color: rgb(179, 51, 51);
 }
 
@@ -56,4 +57,8 @@
     background-color: rgba(252, 241, 241, 0.719);
     padding: 30px;
     padding-bottom: 70px;
+}
+ thead td{
+    width: 500px;
+    height: 40px;
 }

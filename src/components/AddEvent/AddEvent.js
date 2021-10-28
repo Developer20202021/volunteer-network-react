@@ -52,7 +52,7 @@ const AddEvent = () => {
             //   }})
             // console.log(formData);
             
-            fetch('http://localhost:5000/post', {
+            fetch('http://localhost:5000/post-add-event', {
 
                 method:"POST",
                 body:formData

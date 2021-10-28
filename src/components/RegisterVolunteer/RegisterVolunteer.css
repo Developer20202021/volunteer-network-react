@@ -69,3 +69,20 @@
     text-align: left;
     font-size: 19px;
 }
+
+.registation-successMsg{
+    display: flex;
+    align-items: center;
+    color: #5CB85C;
+    font-size: 15px;
+    gap: 5px;
+    font-weight: 700;
+}
+
+.registation-wrongMsg{
+    display: flex;
+    color: red;
+    gap: 5px;
+    font-size: 15px;
+    font-weight: 700;
+}

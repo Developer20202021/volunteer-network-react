@@ -2,8 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 30px;
-    margin-left: 30px;
+    font-size: 14px;
+    /* font-weight: 700;
+    margin-right: 50px;
+    margin-left: 30px; */
 }
 
 .user-container p{
@@ -20,4 +22,21 @@
 .delete-btn i{
     color: red;
 
+
+}
+.user-container p{
+   
+
+}
+
+tr{
+   gap: 50px;
+}
+tr td{
+   
+    width: 500px;
+    font-size: 15px;
+    font-weight: 700;
+    height: 40px;
+    /* text-align: center; */
 }

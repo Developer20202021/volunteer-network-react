@@ -7,17 +7,20 @@ import VolunteerAdmin from './components/VolunteerAdmin/VolunteerAdmin';
 import User from './components/VolunteerAdmin/user/User';
 import AddEvent from './components/AddEvent/AddEvent';
 import Events from './components/EventComponent/Events';
+import Header from './components/Header/Header'
 
 function App() {
   return (
     
 
     <BrowserRouter>
+   <Header></Header>
+  
     {/* <div className="App"> */}
     <Switch>
 
       <Route exact path="/">
-       
+     
       </Route>
    
       {/* Log in page route  */}

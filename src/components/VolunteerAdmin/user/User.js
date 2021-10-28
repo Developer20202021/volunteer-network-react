@@ -6,22 +6,36 @@ import "./User.css";
 
 
 
-const User = () => {
+const User = ({value}) => {
+    const {_id,volunteerName, volunteerEmail, registrationDate, registrationDescription, registrationorganise} = value;
+    console.log(value);
+
+
+
+
+    const deleteInfo = ()=>{
+        fetch(`http://localhost:5000/volunteers/register-delete/${_id}`,{
+            method:"DELETE"
+        })
+        console.log(_id);
+    }
     return (
-        <div>
+        // <div>
+        <tr>
 
 
-            <div className="user-container">
+            {/* <div className="user-container"> */}
 
-                <p>Mahadi Hasan</p>
-                <p>mahadi@gmail.com</p>
-                <p>22/10/2022</p>
-                <p>Organise books at the library</p>
-                <p className='delete-btn'><i class="far fa-trash-alt"></i></p>
+                <td>{volunteerName}</td>
+                <td>{volunteerEmail}</td>
+                <td>{registrationDate.split('T')[0]}</td>
+                <td>{registrationorganise}</td>
+                <td className='delete-btn' onClick={deleteInfo}><i class="far fa-trash-alt"></i></td>
 
-            </div>
+            {/* </div> */}
             
-        </div>
+        {/* // </div> */}
+        </tr>
     );
 };
 

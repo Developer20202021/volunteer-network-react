@@ -22,6 +22,10 @@ import { useState } from 'react';
 const RegisterVolunteer = () => {
 
     const [addClass, setClass] = useState('registratioBtn')
+    const [msg, setMsg] = useState('')
+
+    const [newUser, setNewUser] = useState('')
+    const [number, setNumber] = useState();
 
     const name = useRef();
     const email = useRef();
@@ -53,8 +57,24 @@ const RegisterVolunteer = () => {
                     },
                     body:JSON.stringify(info)
                 })
-                .then(res=>res.json())
+                .then(res=>{
+                    if (res.status===200) {
+                    setMsg('Your registration successfull')
+                    setNumber(200)
+                    return res.json()
+                     }
+                     if(res.status===400){
+                       setMsg('Please fill up the full form')
+                       setNumber(400)
+                     }
+            
+            
+            })
                 .then(data=>console.log(data))
+                .catch(err=>{
+                    console.log(err);
+                })
+              
                 
 
                 setClass("registratioBtn1")
@@ -84,6 +104,8 @@ const RegisterVolunteer = () => {
 
         <div className="form-container">
 
+        {number===200?<div className='registation-successMsg'><img src='https://www.kindpng.com/picc/m/431-4312134_transparent-success-icon-hd-png-download.png' width='30px'></img><span>{msg}</span></div>:null}
+        {number===400?<div className='registation-wrongMsg'><img src='https://image.similarpng.com/very-thumbnail/2020/11/InCorrect-icon-in-sticker-style-on-transparent-background-PNG.png' width='20px'></img><span>{msg}</span></div>:null}
         <h2>Register as a Volunteer</h2>
 
         <div className="input-container">

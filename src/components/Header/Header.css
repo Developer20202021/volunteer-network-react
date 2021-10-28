@@ -1,0 +1,46 @@
+.header-logo img{
+    width: 200px;
+}
+.header-box-part{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    
+    padding: 30px;
+
+}
+
+.header-all-link{
+    display: flex;
+
+}
+.header-all-link p{
+    margin-right: 40px;
+}
+.header-all-link p a{
+    text-decoration: none;
+    color: white;
+}
+.header-box-container{
+    background-color: black;
+}
+.header-register-btn{
+    background-color: #0069D9;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+}
+
+.header-admin-btn{
+    background-color: #5CB85C;
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 8px;
+    border-radius: 10px;
+}
