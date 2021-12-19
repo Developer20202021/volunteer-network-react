@@ -1,4 +1,5 @@
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { getStorage,ref,uploadBytes,getDownloadURL } from "firebase/storage";
 import axios from 'axios';
 import './AddEvent.css'
 import { styled } from '@mui/material/styles';
@@ -7,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Aside from '../Aside/Aside'
 import { Button } from '@mui/material';
+import firebaseInitialization from '../Firebase/FirebaseInitialization';
 const Input = styled('input')({
     display: 'none',
   });
@@ -24,10 +26,26 @@ const AddEvent = () => {
     const file = useRef();
 
 
+    //check file image.
+    const [getImage, setImage] = useState('')
+
+    console.log(getImage);
+
+
+
 
 
    
 
+  
+
+
+
+
+
+    
+   
+    
 
 
         const submitFile =()=>{
@@ -36,6 +54,43 @@ const AddEvent = () => {
             const getDescription = description.current.value;
             const getDate = date.current.value;
         
+            //check file image. to get image before upload .
+
+            setImage(URL.createObjectURL(getFile))
+
+
+
+             // firebase storage 
+
+            //  done it works now 
+
+   const getFirebase = firebaseInitialization();
+   const storage = getStorage(getFirebase , 'gs://volunteer-network-react-a3379.appspot.com');
+
+   const storageRef = ref(storage , `images/${getFile.name}`);
+   uploadBytes(storageRef,getFile).then(snapshot=>{
+       console.log(snapshot);
+       getDownloadURL(storageRef)
+       .then(url=>{
+           console.log(url);
+       })
+
+   })
+
+ 
+
+// console.log(getFile.name);
+
+
+   
+  
+//    uploadBytes(storageRef, getFile).then((snapshot) => {
+//     console.log('Uploaded a blob or file!', snapshot);
+//   });
+
+
+
+
             const formData = new FormData();
          
         
@@ -148,6 +203,12 @@ const AddEvent = () => {
                     <label htmlFor="">Event Date</label>
                     <input ref={date} type="date" />
                     </div>
+
+                    {/* check file image. */}
+                    <img src={getImage} alt="" />
+
+
+
 
               <div>
               <label htmlFor="">Banner</label>
